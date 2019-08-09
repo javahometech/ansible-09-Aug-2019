@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: True
+  vars:
+    - group_name: javahome
+  tasks:
+    - name: Create Group
+      group:
+        name: "{{group_name}}"
+        state: present
+    - name: Create users
+      user:
+        name: "{{item.name}}"
+        group: "{{item.group}}"
+        state: present
+      loop:
+        - {name: 'hari', group: 'javahome'}
+        - {name: 'rahul', group: 'root'}
+        - {name: 'lakshmi', group: 'javahome'}
+
+...
