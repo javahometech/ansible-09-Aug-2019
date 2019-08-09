@@ -1,0 +1,27 @@
+---
+
+- hosts: all
+  become: True
+  tasks:
+    - name: Install apache server
+      yum:
+        name: httpd
+        state: present 
+    - name: Enable apache
+      service:
+        name: httpd
+        enabled: True
+    - name: Install git
+      yum:
+        name: git
+        state: present
+    - name: Install static website
+      git:
+        repo: https://github.com/javahometech/javahome-app
+        dest: /var/www/html
+    - name: start apache
+      service:
+        name: httpd
+        state: started
+
+...
