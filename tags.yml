@@ -1,0 +1,19 @@
+- hosts: all
+  serial:
+    - 1
+    - 5
+    - 30%
+  tasks:
+    - debug:
+        msg: Install java
+      tags:
+        - java
+    - debug:
+        msg: Install tomcat
+      tags:
+        - tomcat
+    - debug:
+        msg: Deploy war file
+      tags:
+        - deploy
+ 

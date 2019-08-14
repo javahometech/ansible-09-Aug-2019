@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  tasks:
+    - debug:
+        msg: From two.yml
+    - name: Include other tasks
+      import_tasks: task-one.yml
+- name: Include one.yml
+  import_playbook: one.yml

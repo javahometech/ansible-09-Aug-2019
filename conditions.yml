@@ -1,6 +1,7 @@
 ---
 - hosts: all
   become: True
+  gather_facts: False
   tasks:
     - name: Install packages
       yum:

@@ -1,0 +1,8 @@
+- hosts: all
+  become: True
+  vars_files:
+    - vars.yml
+  tasks:
+    - debug:
+        msg: "Installing Database{{db_id}}"
+     

@@ -1,0 +1,15 @@
+---
+- hosts: 172.31.41.201
+  become: True
+  tasks:
+    - name: Deploy from nexus
+      maven_artifact:
+        group_id: in.javahome
+        artifact_id: myweb
+        repository_url: 'http://13.235.2.86:8081/repository/javahome-maven/'
+        username: admin
+        password: javahome
+        version: 0.0.6
+        dest: /opt/tomcat8/webapps/myweb.war
+
+
