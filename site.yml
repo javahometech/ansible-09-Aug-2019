@@ -1,0 +1,5 @@
+---
+- hosts: 172.31.38.205
+  become: True
+  roles:
+    - loadbalancer

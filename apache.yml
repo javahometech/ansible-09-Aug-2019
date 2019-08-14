@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: webservers
   become: True
   vars:
     - apache_port: 80
@@ -8,7 +8,7 @@
     - name: Install required packages
       yum:
         name: "{{item}}"
-        state: absent
+        state: present
       loop:
         - httpd
         - git
